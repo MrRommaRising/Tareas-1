@@ -1,0 +1,8 @@
+noise(50, 1)
+  .kaleid(100)
+  .contrast(2)
+  .blend(shape(3, 0.60), 0.5)
+  .color(25,3,20)
+  .repeat(10)
+  .rotate(0.9)
+  .out()
