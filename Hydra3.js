@@ -1,0 +1,8 @@
+voronoi(20,1,3)
+  .kaleid(18)
+  .color(5,2,10)
+  .diff(gradient([9,8,7]))
+  .color(0.8,1.8,0.5)
+  .modulateKaleid(voronoi(6,0.2,0.8),150)
+  .pixelate(280,130)
+  .out()
