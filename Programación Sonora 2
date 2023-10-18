@@ -1,0 +1,74 @@
+s.boot;
+
+//miRola
+TempoClock.tempo=100/100
+
+(
+~rev=Synth(\rev); // 9 Reverberación
+~dly=Synth(\dly); // 11 Delay
+~lpf=Synth(\lpf); // 13 Low Pass Filter
+~hpf=Synth(\hpf); // 15 High Pass Filter
+~bpf=Synth(\bpf); // 17 Band Pass Filter
+);
+(
+~melody1=Pdef(\meldy, Pbind(
+	\instrument,\sine2,
+	\dur, 0.30,
+\amp, Pseq([0.5, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],inf),
+	\freq, Pseq([300, 400, 800, 790, Pn(350, 4), Pseq([400, 800, 400, 450], 3)], inf),
+	\rel, 0.01,
+    \out, 11
+))
+);
+
+
+(
+~melody2=Pdef(\meldy2, Pbind(
+	\instrument,\rev,
+	\dur, 0.10,
+	\freq, Pseq([300, 400, 800, 790, Pn(350, 4), Pseq([400, 800, 400, 450], 3)], inf),
+	\rel, 0.01,
+\amp, Pseq([0.2, 0, 0.2, 0.5, 0, 0.5, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1],inf),
+    \out, 17
+))
+);
+
+
+(
+~melody4=Pdef(\meldy4, Pbind(
+	\instrument,\tri,
+	\dur, 0.10,
+	\freq, Pseq([300, 400, 800, 790, Pn(350, 4), Pseq([400, 800, 400, 450], 3)], inf),
+	\rel, 0.05,
+\amp, Pseq([0.2, 0, 0.2, 0.5, 0, 0.5, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1],inf),
+    \out, 17
+))
+);
+
+
+(
+~melody3=Pdef(\meldy3, Pbind(
+	\instrument,\saw,
+	\dur, 0.30,
+	\freq, Pseq([300, 400, 800, 790, Pn(350, 4), Pseq([400, 800, 400, 450], 4)], inf),
+	\rel, 0.001,
+\amp, Pseq([0.2, 0, 0.2, 0.3, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0],inf),
+    \out, 9
+
+
+))
+);
+);
+
+
+~melody1.play.quant(4);
+~melody2.play.quant(4);
+~melody3.play.quant(4);
+~melody4.play.quant(4);
+
+~melody1.stop;
+~melody2.stop;
+~melody3.stop;
+~melody4.stop;
+
+
